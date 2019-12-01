@@ -9,6 +9,5 @@ fn main() {
     // variables::basic();
     // flow_control::basic();
     // structures::basic();
-    let res = adventofcode2019::day1();
-    println!("{:?}", res);
+    adventofcode2019::run();
 }
