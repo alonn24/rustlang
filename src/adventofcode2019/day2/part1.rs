@@ -1,7 +1,14 @@
-fn get_swap_value(input: &Vec<usize>, i: usize) -> usize {
-  match input[i] {
-    1 => input[input[i + 1]] + input[input[i + 2]],
-    2 => input[input[i + 1]] * input[input[i + 2]],
+fn add(x: usize, y: usize) -> usize {
+  x + y
+}
+fn mul(x: usize, y: usize) -> usize {
+  x * y
+}
+
+fn get_swap_value(op_type: usize) -> fn(usize, usize) -> usize {
+  match op_type {
+    1 => add,
+    2 => mul,
     _ => panic!("Uh!")
   }
 }
@@ -14,7 +21,7 @@ pub fn part1(input: Vec<usize>) -> Vec<usize> {
       break;
     };
     let output_i = result[i + 3];
-    result[output_i] = get_swap_value(&result, i);
+    result[output_i] = get_swap_value(result[i])(result[result[i + 1]], result[result[i + 2]]);
     i += 4;
   }
   result
@@ -26,7 +33,7 @@ mod tests {
 
   #[test]
   fn calculate_12() {
-    assert_eq!(vec![2,0,0,0,99], part1(vec![1, 0, 0, 0, 99]));
-    assert_eq!(vec![2,3,0,6,99], part1(vec![2,3,0,3,99]));
+    assert_eq!(vec![2, 0, 0, 0, 99], part1(vec![1, 0, 0, 0, 99]));
+    assert_eq!(vec![2, 3, 0, 6, 99], part1(vec![2, 3, 0, 3, 99]));
   }
 }
