@@ -1,14 +1,8 @@
-fn mass_to_fuel(mass: i32) -> i32 {
-  (mass / 3) - 2
-}
+const MASS_TO_FUEL: fn(i32) -> i32 = |mass: i32| (mass / 3) - 2;
 
 fn calculate_fuel_recursive(mass: i32) -> i32 {
-  let fuel = mass_to_fuel(mass);
-  if fuel <= 0 {
-    0
-  } else {
-    fuel + calculate_fuel_recursive(fuel)
-  }
+  let fuel = MASS_TO_FUEL(mass);
+  if fuel <= 0 { 0 }  else { fuel + calculate_fuel_recursive(fuel) }
 }
 
 // NOT 5040745, 5043715, 15129103

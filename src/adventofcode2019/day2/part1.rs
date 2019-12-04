@@ -1,15 +1,11 @@
-fn add(x: usize, y: usize) -> usize {
-  x + y
-}
-fn mul(x: usize, y: usize) -> usize {
-  x * y
-}
+const ADD: fn(usize, usize) -> usize = |x, y| x + y;
+const MUL: fn(usize, usize) -> usize = |x, y| x * y;
 
 fn get_swap_value(op_type: usize) -> fn(usize, usize) -> usize {
   match op_type {
-    1 => add,
-    2 => mul,
-    _ => panic!("Uh!")
+    1 => ADD,
+    2 => MUL,
+    _ => panic!("Uh!"),
   }
 }
 // NOT 103, 89

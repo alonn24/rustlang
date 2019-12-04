@@ -1,7 +1,10 @@
-fn get_swap_value(input: &Vec<usize>, i: usize) -> usize {
-  match input[i] {
-    1 => input[input[i + 1]] + input[input[i + 2]],
-    2 => input[input[i + 1]] * input[input[i + 2]],
+const ADD: fn(usize, usize) -> usize = |x, y| x + y;
+const MUL: fn(usize, usize) -> usize = |x, y| x * y;
+
+fn get_swap_value(op_type: usize) -> fn(usize, usize) -> usize {
+  match op_type {
+    1 => ADD,
+    2 => MUL,
     _ => panic!("Uh!"),
   }
 }
@@ -15,7 +18,7 @@ fn get_output(mut input: Vec<usize>, noun: usize, verb: usize) -> Vec<usize> {
       break;
     };
     let output_i = input[i + 3];
-    input[output_i] = get_swap_value(&input, i);
+    input[output_i] = get_swap_value(input[i])(input[input[i + 1]], input[input[i + 2]]);
     i += 4;
   }
   input
