@@ -1,3 +1,4 @@
+![Statge Bedge](https://circleci.com/gh/alonn24/rustlang.svg?style=svg)
 # Insta Rust
 brew install rustup
 rustup-init
