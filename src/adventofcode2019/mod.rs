@@ -2,6 +2,7 @@ mod day1;
 mod day2;
 mod day3;
 mod day4;
+mod day5;
 
 pub fn run() {
   println!("day1-1: {}", day1::get_part1());
@@ -12,4 +13,6 @@ pub fn run() {
   println!("day3-2: {}", day3::get_part2());
   println!("day4-1: {}", day4::get_part1());
   println!("day4-2: {}", day4::get_part2());
+  println!("day5-1: {}", day5::get_part1());
+  println!("day5-2: {}", day5::get_part2());
 }
