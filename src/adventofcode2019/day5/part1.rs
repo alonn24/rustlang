@@ -31,7 +31,7 @@ pub fn part1(input: Vec<i32>, op_input: i32) -> i32 {
     if op_type == 3 || op_type == 4 {
       let ref_index = result[i + 1];
       if op_type == 3 {
-        result[ref_index as usize] = 1;
+        result[ref_index as usize] = op_input;
       } else {
         output = result[ref_index as usize];
       }

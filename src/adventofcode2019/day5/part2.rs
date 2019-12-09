@@ -22,24 +22,6 @@ fn get_value_by_type(values: &Vec<i32>, i: i32, offset: i32) -> i32 {
   };
 }
 
-fn get_jump_to(op_type: i32, values: &Vec<i32>, i: i32) -> i32 {
-  return if (op_type == 5 && get_value_by_type(&values, i, 1) != 0) {
-    get_value_by_type(&values, i, 2)
-  } else if op_type == 6 && get_value_by_type(&values, i, 2) == 0 {
-    get_value_by_type(&values, i, 2)
-  } else if op_type == 7 && get_value_by_type(&values, i, 1) < get_value_by_type(&values, i, 2) {
-    get_value_by_type(&values, i, 3)
-  } else if op_type == 8 && get_value_by_type(&values, i, 1) == get_value_by_type(&values, i, 2) {
-    get_value_by_type(&values, i, 3)
-  } else {
-    if op_type <= 6 {
-      i + 2
-    } else {
-      i + 4
-    }
-  };
-}
-
 pub fn part2(input: &Vec<i32>, op_input: i32) -> i32 {
   let mut result = input.to_vec();
   let mut i = 0;
