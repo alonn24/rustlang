@@ -49,7 +49,6 @@ pub fn part2(input: &Vec<i32>, op_input: i32) -> i32 {
       i += 2;
     } else if op_type == 4 {
       output = get_value_by_type(&result, i as i32, 1);
-      println!("output {}", output);
       i += 2;
     } else if op_type >= 5 && op_type <= 6 {
       let value = get_value_by_type(&result, i as i32, 1);
