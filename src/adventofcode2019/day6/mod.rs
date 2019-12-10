@@ -1,12 +1,10 @@
-use std::collections::HashMap;
 use std::fs;
 mod part1;
 mod part2;
 
-fn get_input() -> HashMap<String, String> {
-  let contents = fs::read_to_string("./src/adventofcode2019/day6/day6.input")
-    .expect("Something went wrong reading the file");
-  part1::convert_input(contents)
+fn get_input() -> String {
+  fs::read_to_string("./src/adventofcode2019/day6/day6.input")
+    .expect("Something went wrong reading the file")
 }
 
 pub fn get_part1() -> i32 {
